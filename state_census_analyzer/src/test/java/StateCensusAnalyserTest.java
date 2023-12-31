@@ -1,6 +1,4 @@
 
-import org.junit.jupiter.api.Assertions;
-
 import com.example.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,6 +20,16 @@ public class StateCensusAnalyserTest {
             assertEquals(29, count);
         } catch (CensusAnalyserException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void TestWhenFileNotExists() throws IOException {
+        try {
+            int count = StateCensusAnalyser.openCsvBuilder(WRONG_FILE, StateCensus.class);
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+            assertEquals(CensusAnalyserException.CensusExceptionType.NO_SUCH_FILE, e.type);
         }
     }
 

@@ -40,6 +40,9 @@ public class StateCensusAnalyser {
 
             Iterator<Object> myIterator = csvToBean.iterator();
             return myIterator;
+        } catch (NoSuchFileException e) {
+            throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.NO_SUCH_FILE,
+                    "no such file exists. Please enter correct file");
         } catch (IOException e) {
             throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.SOME_IO_EXCEPTION,
                     "Some IO related exception");
