@@ -2,7 +2,7 @@ package com.example;
 
 public class CensusAnalyserException extends Exception {
     public enum CensusExceptionType {
-        NO_SUCH_FILE, SOME_IO_EXCEPTION, NO_SUCH_CLASS
+        NO_SUCH_FILE, INCORRECT_DATA_ISSUE, SOME_IO_EXCEPTION, NO_SUCH_CLASS
     }
 
     public CensusExceptionType type;

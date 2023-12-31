@@ -33,4 +33,15 @@ public class StateCensusAnalyserTest {
         }
     }
 
+    @Test
+    public void TestIncorrectFileExtension()
+            throws IOException {
+        try {
+            int count = StateCensusAnalyser.openCsvBuilder(STATECODES_CSVFILE, StateCensus.class);
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+            assertEquals(CensusAnalyserException.CensusExceptionType.INCORRECT_DATA_ISSUE, e.type);
+        }
+    }
+
 }

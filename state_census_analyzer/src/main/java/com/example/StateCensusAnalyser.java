@@ -43,6 +43,10 @@ public class StateCensusAnalyser {
         } catch (NoSuchFileException e) {
             throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.NO_SUCH_FILE,
                     "no such file exists. Please enter correct file");
+        } catch (RuntimeException e) {
+            throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.INCORRECT_DATA_ISSUE,
+                    "delimiter error at line 1 OR might be some error " +
+                            "related to headers or incorrect extension / input file ");
         } catch (IOException e) {
             throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.SOME_IO_EXCEPTION,
                     "Some IO related exception");
