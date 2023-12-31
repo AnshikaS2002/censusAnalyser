@@ -24,6 +24,9 @@ public class StateCensusAnalyser {
             }
         } catch (CensusAnalyserException e) {
             throw e;
+        } catch (RuntimeException e) {
+            throw new CensusAnalyserException(CensusAnalyserException.CensusExceptionType.DELIMITER_ISSUE,
+                    "error related to delimiter at record no. : " + (counter + 1));
         }
         return counter;
     }
